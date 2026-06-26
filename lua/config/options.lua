@@ -3,6 +3,5 @@
 -- Add any additional options here
 vim.g.autoformat = false
 vim.opt.relativenumber = false
-vim.opt.guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25-Cursor"
 vim.opt.cursorline = false
 vim.opt.wrap = true

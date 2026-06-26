@@ -14,7 +14,6 @@ return {
       hl.RenderMarkdownCode = { bg = "#000000" }
       hl["@markup.raw.block"] = { bg = "#000000" }
       hl.RCodeBlock = { bg = "#000000" }
-      hl.Cursor = { fg = "#000000", bg = "#9d7cd8" }
       hl.String = { fg = "#bb9af7" }
       hl["@string"] = { fg = "#bb9af7" }
       hl["@variable"] = { fg = "#7aa2f7" }
