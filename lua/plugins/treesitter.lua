@@ -5,5 +5,6 @@ return {
   opts = {
     ensure_installed = { "javascript", "typescript", "lua", "markdown", "vim", "python", "r", "latex", "yaml", "git_config", "gitcommit", "gitignore" },
     highlight = { enable = true },
+    ignore_install = { "rexx" },
   },
 }
