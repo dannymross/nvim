@@ -41,9 +41,8 @@ return {
       },
       sections = {
         { section = "header" },
-        { title = "Bookmarks", section = "keys", gap = 1, padding = 2, indent = 2 },
-        { title = "Recent Files", section = "recent_files", indent = 2, padding = { 2, 0 } },
-        ----{ section = "header", pane = 2 },
+        { title = "bookmarks", section = "keys", gap = 0, padding = 2, indent = 2 },
+        { title = "recent files", section = "recent_files", indent = 2, padding = { 2, 0 } },
         {
           section = "terminal",
           cmd = "date '+%a %b %d' | figlet -f cricket",
@@ -53,14 +52,38 @@ return {
         },
         {
           section = "terminal",
-          ---cmd = "pokemon-colorscripts -rn snorlax,minun,plusle,eevee,ralts,pikachu,pichu,torchic --no-title; sleep .1;",
           cmd = "pokemon-colorscripts -rn blaziken,snorlax,gengar,mewtwo,luxio,minun,plusle --no-title; sleep .1;",
-          ---cmd = "pokemon-colorscripts -r; sleep .1;",
           random = 1,
           pane = 2,
           indent = 10,
           height = 30,
           width = 80,
+        },
+        {
+          pane = 1,
+          icon = " ",
+          title = "browse repo",
+          padding = 1,
+          indent = 0,
+          key = "b",
+          action = function()
+            Snacks.gitbrowse()
+          end,
+        },
+        {
+          pane = 1,
+          icon = " ",
+          title = "git status",
+          section = "terminal",
+          enabled = function()
+            return Snacks.git.get_root() ~= nil
+          end,
+          ---cmd = "git status --short --branch --renames",
+          cmd = "git --no-pager diff --stat -B -M -C",
+          height = 5,
+          padding = 1,
+          ttl = 5 * 60,
+          indent = 2,
         },
       },
     },
