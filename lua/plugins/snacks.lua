@@ -44,22 +44,6 @@ return {
         { title = "bookmarks", section = "keys", gap = 0, padding = 2, indent = 2 },
         { title = "recent files", section = "recent_files", indent = 2, padding = { 2, 0 } },
         {
-          section = "terminal",
-          cmd = "date '+%a %b %d' | figlet -f cricket",
-          pane = 2,
-          width = 80,
-          ---height = 10,
-        },
-        {
-          section = "terminal",
-          cmd = "pokemon-colorscripts -rn blaziken,snorlax,gengar,mewtwo,luxio,minun,plusle --no-title; sleep .1;",
-          random = 1,
-          pane = 2,
-          indent = 10,
-          height = 30,
-          width = 80,
-        },
-        {
           pane = 1,
           icon = " ",
           title = "browse repo",
