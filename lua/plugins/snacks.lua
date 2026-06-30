@@ -54,20 +54,6 @@ return {
           end,
         },
         {
-          pane = 1,
-          icon = " ",
-          title = "git status",
-          section = "terminal",
-          enabled = function()
-            return Snacks.git.get_root() ~= nil
-          end,
-          cmd = "git --no-pager diff --stat -B -M -C",
-          height = 5,
-          padding = 1,
-          ttl = 5 * 60,
-          indent = 2,
-        },
-        {
           section = "terminal",
           cmd = "neofetch",
           pane = 1,
