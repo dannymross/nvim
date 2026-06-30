@@ -4,8 +4,7 @@ return {
   ---@type snacks.Config
   opts = {
     dashboard = {
-      ---width = 60,
-      ---- height = 10,
+      width = 100,
       preset = {
         ---@type fun(cmd:string, opts:table)|nil
         pick = nil,
@@ -62,7 +61,6 @@ return {
           enabled = function()
             return Snacks.git.get_root() ~= nil
           end,
-          ---cmd = "git status --short --branch --renames",
           cmd = "git --no-pager diff --stat -B -M -C",
           height = 5,
           padding = 1,
@@ -72,11 +70,10 @@ return {
         {
           section = "terminal",
           cmd = "neofetch",
-          pane = 2,
+          pane = 1,
           height = 20,
-          width = 100,
           padding = { 2, 2 },
-          indent = 1,
+          indent = 10,
         },
       },
     },
