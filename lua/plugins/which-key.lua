@@ -9,8 +9,7 @@ return {
     {
       "<leader>?",
       function()
-        -- root the popup at <leader> itself so it shows the leader
-        -- cheatsheet (e.g. <leader>E), not just buffer-local mappings
+        -- root the popup at <leader> so it shows the full leader cheatsheet
         require("which-key").show({ keys = "<leader>", loop = true })
       end,
       desc = "Buffer + Global Keymaps (which-key)",

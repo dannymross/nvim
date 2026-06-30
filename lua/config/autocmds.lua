@@ -24,6 +24,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- force a full parse so injected code-chunk languages resolve everywhere, not just near the top
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "quarto", "rmd" },
+  callback = function(ev)
+    local ok, parser = pcall(vim.treesitter.get_parser, ev.buf)
+    if ok and parser then
+      pcall(parser.parse, parser, true)
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufReadCmd", {
   pattern = "*.pdf",
   callback = function(args)
