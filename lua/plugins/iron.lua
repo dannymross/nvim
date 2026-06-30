@@ -18,9 +18,9 @@ return {
               command = { "ipython", "--no-autoindent" },
               format = common.bracketed_paste_python,
               block_dividers = { "# %%", "#%%" },
-              ---env = {PYTHON_BASIC_REPL = "1"}
-              ---format = common.bracketed_paste_python,
-              ---block_dividers = { "# %%", "#%%" },
+            },
+            r = {
+              command = { "R", "--no-save", "--no-restore", "--quiet" },
             },
             quarto = {
               command = { "ipython", "--no-autoindent" },

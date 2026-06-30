@@ -1,11 +1,12 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  opts = {
-    ensure_installed = vim.env.SSH_CONNECTION and {}
-      or { "javascript", "typescript", "lua", "markdown", "vim", "python", "r", "latex", "yaml", "git_config", "gitcommit", "gitignore" },
-    auto_install = vim.env.SSH_CONNECTION == nil,
-    highlight = { enable = true },
-    ignore_install = { "rexx" },
-  },
+  opts = function(_, opts)
+    -- This system can't compile tree-sitter parsers (GLIBC too old).
+    -- Remove any parsers that require compilation from source.
+    local cant_compile = { latex = true, bibtex = true }
+    opts.ensure_installed = vim.tbl_filter(function(lang)
+      return not cant_compile[lang]
+    end, opts.ensure_installed or {})
+    return opts
+  end,
 }
